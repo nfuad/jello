@@ -1,11 +1,17 @@
 {
   "name": "jello",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.0",
+  "private": false,
+  "author": {
+    "name": "Nafis Fuad",
+    "email": "fuadbd14@gmail.com",
+    "url": "https://nafis.co"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "now --prod"
   },
   "dependencies": {
     "next": "9.1.7",
