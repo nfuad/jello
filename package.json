@@ -24,7 +24,8 @@
     "next": "9.1.7",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-trello": "^2.2.3"
+    "react-trello": "^2.2.3",
+    "sweetalert2": "^9.5.4"
   },
   "devDependencies": {
     "@types/node": "^13.1.6",
