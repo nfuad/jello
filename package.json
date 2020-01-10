@@ -1,5 +1,6 @@
 {
   "name": "jello",
+  "description": "A nice and simple Kanban board.",
   "version": "0.0.0",
   "private": false,
   "author": {
@@ -7,6 +8,12 @@
     "email": "fuadbd14@gmail.com",
     "url": "https://nafis.co"
   },
+  "keywords": [
+    "React",
+    "Next",
+    "Kanban Board",
+    "GraphQL"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
