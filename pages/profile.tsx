@@ -1,9 +1,10 @@
-import React from "react";
+import * as React from "react";
 
+// custom imports
 import Layout from "../components/Layout";
 import { useFetchUser } from "../utils/user";
 
-export default function Profile() {
+export default () => {
   const { user, loading } = useFetchUser();
 
   return (
@@ -20,4 +21,4 @@ export default function Profile() {
       )}
     </Layout>
   );
-}
+};

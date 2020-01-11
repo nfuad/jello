@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { useUser } from "../utils/user";
 
-const Header = () => {
+export default () => {
   const { user, loading } = useUser();
 
   return (
@@ -82,5 +82,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

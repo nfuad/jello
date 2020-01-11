@@ -1,5 +1,6 @@
-import React from "react";
+import * as React from "react";
 
+// custom imports
 import Layout from "../components/Layout";
 import withAuth from "../components/withAuth";
 

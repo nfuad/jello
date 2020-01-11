@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import * as React from "react";
+
+// custom imports
 import auth0 from "../utils/auth0";
 
 export default function withAuth(InnerComponent) {
-  return class Authenticated extends Component<any, any> {
+  return class Authenticated extends React.Component<any, any> {
     static async getInitialProps({ req, res }) {
       const session = await auth0.getSession(req);
       if (!session || !session.user) {

@@ -1,9 +1,10 @@
-import React from "react";
+import * as React from "react";
 
+// custom imports
 import Layout from "../components/Layout";
 import { useFetchUser } from "../utils/user";
 
-export default function About() {
+export default () => {
   const { user, loading } = useFetchUser();
 
   return (
@@ -16,4 +17,4 @@ export default function About() {
       </p>
     </Layout>
   );
-}
+};

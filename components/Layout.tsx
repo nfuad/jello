@@ -1,10 +1,11 @@
 import React from "react";
 import Head from "next/head";
 
+// custom imports
 import Header from "./Header";
 import { UserProvider } from "../utils/user";
 
-const Layout = ({ user, loading = false, children }) => (
+export default ({ user, loading = false, children }) => (
   <UserProvider value={{ user, loading }}>
     <Head>
       <title>Next.js with Auth0</title>
@@ -31,5 +32,3 @@ const Layout = ({ user, loading = false, children }) => (
     `}</style>
   </UserProvider>
 );
-
-export default Layout;
