@@ -30,6 +30,7 @@
     "apollo-link-schema": "^1.2.4",
     "apollo-server-micro": "^2.9.16",
     "dotenv": "^8.2.0",
+    "faunadb": "^2.10.2",
     "graphql-tag": "^2.10.1",
     "graphql-tools": "^4.0.6",
     "isomorphic-unfetch": "^3.0.0",
