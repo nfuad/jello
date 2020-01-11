@@ -42,7 +42,7 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
 
       // Initialize ApolloClient, add it to the ctx object so
       // we can use it in `PageComponent.getInitialProp`.
-      const apolloClient = (ctx.apolloClient = initApolloClient(null));
+      const apolloClient = (ctx.apolloClient = initApolloClient());
 
       // Run wrapped getInitialProps methods
       let pageProps = {};
@@ -102,7 +102,7 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
  * Creates or reuses apollo client in the browser.
  * @param  {Object} initialState
  */
-function initApolloClient(initialState) {
+function initApolloClient(initialState = {}) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (typeof window === "undefined") {
