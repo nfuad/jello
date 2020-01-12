@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import fetch from "isomorphic-unfetch";
 
 // Use a global to save the user, so we don't have to fetch it again after page navigations
@@ -7,9 +7,7 @@ let userState;
 const User = React.createContext({ user: null, loading: false });
 
 export const fetchUser = async () => {
-  if (userState !== undefined) {
-    return userState;
-  }
+  if (userState !== undefined) return userState;
 
   const res = await fetch("/api/me");
   userState = res.ok ? await res.json() : null;
