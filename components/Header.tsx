@@ -1,13 +1,21 @@
-import React from "react";
-import Link from "next/link";
+import * as React from 'react'
+import Link from 'next/link'
+import GithubCorner from 'react-github-corner'
 
-import { useUser } from "../utils/user";
+// custom imports
+import { useUser } from '../utils/user'
+import CreateBoard from './CreateBoard'
 
 export default () => {
-  const { user, loading } = useUser();
+  const { user, loading } = useUser()
 
   return (
     <header>
+      <GithubCorner
+        href="https://github.com/nfuad/jello"
+        bannerColor="var(--primary)"
+        size="60"
+      />
       <nav>
         <ul>
           <li>
@@ -27,12 +35,14 @@ export default () => {
                   <Link href="/profile">
                     <a>Profile</a>
                   </Link>
-                </li>{" "}
+                </li>{' '}
                 <li>
-                  <a href="/profile-ssr">Profile (SSR)</a>
-                </li>{" "}
+                  <CreateBoard owner={user} />
+                </li>
                 <li>
-                  <a href="/api/logout">Logout</a>
+                  <a href="/api/logout" onClick={() => localStorage.clear()}>
+                    Logout
+                  </a>
                 </li>
               </>
             ) : (
@@ -48,12 +58,10 @@ export default () => {
       <style jsx>{`
         header {
           padding: 0.2rem;
-          color: #fff;
-          background-color: #333;
         }
         nav {
-          max-width: 42rem;
-          margin: 1.5rem auto;
+          max-width: 70vw;
+          margin: auto;
         }
         ul {
           display: flex;
@@ -67,18 +75,15 @@ export default () => {
         li:nth-child(2) {
           margin-right: auto;
         }
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
+
         button {
           font-size: 1rem;
-          color: #fff;
+          color: var(--white);
           cursor: pointer;
           border: none;
           background: none;
         }
       `}</style>
     </header>
-  );
-};
+  )
+}
