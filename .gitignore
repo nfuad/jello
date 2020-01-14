@@ -15,6 +15,7 @@
 # production
 /build
 now.json
+db.json
 
 # misc
 .DS_Store
