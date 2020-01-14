@@ -1,11 +1,23 @@
-import React from "react";
-import Head from "next/head";
+import React from 'react'
+import Head from 'next/head'
 
 // custom imports
-import Header from "./Header";
-import { UserProvider } from "../utils/user";
+import Header from './Header'
+import { UserProvider } from '../utils/user'
 
-export default ({ user, loading = false, children, container = false }) => (
+interface Props {
+  user?: object
+  loading?: boolean
+  children: any
+  container?: boolean
+}
+
+export default ({
+  user,
+  loading = false,
+  children,
+  container = false,
+}: Props) => (
   <UserProvider value={{ user, loading }}>
     <Head>
       <title>Next.js with Auth0</title>
@@ -31,7 +43,7 @@ export default ({ user, loading = false, children, container = false }) => (
         --link-border-bottom-dark: 1.2px solid var(--dark);
         --link-border-bottom-hover: 1.2px solid var(--primary);
         --box-shadow: 0 5px 15px -10px var(--grey);
-        --font-family: -apple-system, "Segoe UI";
+        --font-family: -apple-system, 'Segoe UI';
       }
       ::selection {
         background: var(--primary);
@@ -60,4 +72,4 @@ export default ({ user, loading = false, children, container = false }) => (
       }
     `}</style>
   </UserProvider>
-);
+)
