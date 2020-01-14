@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import randomColor from 'randomcolor'
 
 // custom imports
 import Form from './Form'
@@ -13,6 +14,12 @@ export default ({ owner }) => {
     <button
       onClick={e => {
         console.log('Add Board')
+        const backgroundColor = randomColor({
+          luminosity: 'dark',
+          format: 'rgb',
+          alpha: 1,
+        })
+
         MySwal.fire({
           title: 'Add new Board!',
           html: (
@@ -24,7 +31,12 @@ export default ({ owner }) => {
                   headers: {
                     'Content-Type': 'application/json',
                   },
-                  body: JSON.stringify({ ...data, owner: owner.sub, boardId }),
+                  body: JSON.stringify({
+                    ...data,
+                    owner: owner.sub,
+                    boardId,
+                    backgroundColor,
+                  }),
                 }).then(res => console.log(res))
 
                 document.location.href = `/boards/${boardId}`
