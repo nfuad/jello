@@ -51,7 +51,6 @@ interface Props {
 }
 
 interface State {
-  loading: boolean
   currentPage: any
   addCardMode: boolean
   collapsed: boolean
@@ -60,7 +59,6 @@ interface State {
 
 class Lane extends React.Component<Props, State> {
   state = {
-    loading: false,
     currentPage: this.props.currentPage,
     addCardMode: false,
     collapsed: false,
@@ -72,9 +70,8 @@ class Lane extends React.Component<Props, State> {
     const elemScrolPosition =
       node.scrollHeight - node.scrollTop - node.clientHeight
     const { onLaneScroll } = this.props
-    if (elemScrolPosition <= 0 && onLaneScroll && !this.state.loading) {
+    if (elemScrolPosition <= 0 && onLaneScroll) {
       const { currentPage } = this.state
-      this.setState({ loading: true })
       const nextPage = currentPage + 1
       onLaneScroll(nextPage, this.props.id).then(moreCards => {
         if (!moreCards || moreCards.length === 0) {
@@ -87,7 +84,6 @@ class Lane extends React.Component<Props, State> {
             nextPage: nextPage,
           })
         }
-        this.setState({ loading: false })
       })
     }
   }
@@ -290,7 +286,7 @@ class Lane extends React.Component<Props, State> {
   }
 
   render() {
-    const { loading, isDraggingOver, collapsed } = this.state
+    const { isDraggingOver, collapsed } = this.state
     const {
       id,
       cards,
@@ -321,7 +317,6 @@ class Lane extends React.Component<Props, State> {
       >
         {this.renderHeader({ id, cards, ...otherProps })}
         {this.renderDragContainer(isDraggingOver)}
-        {loading && <components.Loader />}
         {showFooter && (
           <components.LaneFooter
             onClick={this.toggleLaneCollapsed}
