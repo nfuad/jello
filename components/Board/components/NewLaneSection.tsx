@@ -1,4 +1,6 @@
-import React from 'react'
+import * as React from 'react'
+
+// custom imports
 import { NewLaneSection } from '../styles/Base'
 import { AddLaneLink } from '../styles/Elements'
 
