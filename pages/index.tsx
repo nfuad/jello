@@ -1,35 +1,48 @@
-import * as React from "react";
+import * as React from 'react'
 
 // custom imports
-import Layout from "../components/Layout";
-import { useFetchUser } from "../utils/user";
+import Layout from '../components/Layout'
+import Landing from '../components/Landing'
+import Loader from '../components/Loader'
+import BoardItem from '../components/BoardItem'
+import { useFetchUser } from '../utils/user'
 
 export default () => {
-  const { user, loading } = useFetchUser();
+  const { user, loading } = useFetchUser()
 
   return (
-    <Layout user={user} loading={loading}>
-      <h1>Next.js and Auth0 Example</h1>
-
-      {loading && <p>Loading login info...</p>}
-
-      {!loading && !user && (
-        <>
-          <p>
-            To test the login click in <i>Login</i>
-          </p>
-          <p>
-            Once you have logged in you should be able to click in{" "}
-            <i>Profile</i> and <i>Logout</i>
-          </p>
-        </>
-      )}
+    <Layout user={user} loading={loading} container={true}>
+      {loading && <Loader />}
+      {!loading && !user && <Landing />}
       {user && (
         <>
-          <h4>Rendered user info on the client</h4>
-          <pre>{JSON.stringify(user, null, 2)}</pre>
+          <h1>Boards</h1>
+          <ul>
+            {user.boards.map(board => {
+              const { id, title, backgroundColor, description } = board
+              return (
+                <BoardItem
+                  key={id}
+                  name={title}
+                  id={id}
+                  backgroundColor={backgroundColor}
+                  description={description}
+                />
+              )
+            })}
+          </ul>
+          <style jsx>
+            {`
+              ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+              }
+            `}
+          </style>
         </>
       )}
     </Layout>
-  );
-};
+  )
+}
