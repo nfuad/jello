@@ -1,7 +1,6 @@
 import LaneHeader from './Lane/LaneHeader'
 import LaneFooter from './Lane/LaneFooter'
 import Card from './Card'
-import Loader from './Loader'
 import NewLaneForm from './NewLaneForm'
 import NewCardForm from './NewCardForm'
 import AddCardLink from './AddCardLink'
@@ -16,7 +15,6 @@ import {
 export default {
   GlobalStyle,
   BoardWrapper,
-  Loader,
   ScrollableLane,
   LaneHeader,
   LaneFooter,
