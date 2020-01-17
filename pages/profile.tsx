@@ -6,12 +6,12 @@ import Loader from '../components/Loader'
 import { useFetchUser } from '../utils/user'
 
 export default () => {
-  const { user, loading } = useFetchUser()
+  const { user, userLoading } = useFetchUser()
 
   return (
-    <Layout user={user} loading={loading} container={true}>
-      {loading && <Loader />}
-      {!loading && !user && <h1>Please log in or create an account.</h1>}
+    <Layout user={user} loading={userLoading} container={true}>
+      {userLoading && <Loader />}
+      {!userLoading && !user && <h1>Please log in or create an account.</h1>}
       {user && (
         <>
           <h1>{user.nickname}'s Profile Info:</h1>
@@ -37,6 +37,7 @@ export default () => {
               display: block;
               border-radius: 5px;
               margin-left: 10%;
+              max-width: 20%;
             }
           `}</style>
         </>
