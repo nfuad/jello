@@ -5,7 +5,9 @@ import { GraphQLClient } from 'graphql-request'
 
 // custom imports
 import Form from './Form'
-import CreateBoardMutation from '../graphql/CreateBoardMutation'
+
+// queries and mutations
+import CREATE_BOARD from '../graphql/mutations/create-board'
 
 // initialize with sweetAlert react
 const MySwal = withReactContent(Swal)
@@ -30,7 +32,7 @@ export default () => {
                   description: data.description,
                 }
 
-                client.request(CreateBoardMutation, variables).then(res => {
+                client.request(CREATE_BOARD, variables).then(res => {
                   console.log(res.createBoard)
                   document.location.href = `/boards/${res.createBoard.id}`
                 })

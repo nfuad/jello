@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { GraphQLClient } from 'graphql-request'
 
-// custom imports
-import DeleteBoardMutation from '../graphql/DeleteBoardMutation'
+// queries and mutations
+import DELETE_BOARD from '../graphql/mutations/delete-board'
 
 export default ({ id }) => {
   console.log(id)
@@ -19,7 +19,7 @@ export default ({ id }) => {
           id,
         }
 
-        client.request(DeleteBoardMutation, variables).then(res => {
+        client.request(DELETE_BOARD, variables).then(res => {
           console.log(res.deleteBoard)
           document.location.href = '/'
         })
