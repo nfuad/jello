@@ -1,45 +1,39 @@
 import * as React from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import randomColor from 'randomcolor'
+import { GraphQLClient } from 'graphql-request'
 
 // custom imports
 import Form from './Form'
+import CreateBoardMutation from '../graphql/CreateBoardMutation'
 
 // initialize with sweetAlert react
 const MySwal = withReactContent(Swal)
 
-export default ({ owner }) => {
+export default () => {
   return (
     <button
-      onClick={e => {
-        console.log('Add Board')
-        const backgroundColor = randomColor({
-          luminosity: 'dark',
-          format: 'rgb',
-          alpha: 1,
-        })
-
+      onClick={_ => {
         MySwal.fire({
           title: 'Add new Board!',
           html: (
             <Form
               onSubmit={data => {
-                const boardId = new Date().getTime()
-                fetch('/api/save', {
-                  method: 'POST',
+                const client = new GraphQLClient('/api/graphql', {
                   headers: {
-                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                   },
-                  body: JSON.stringify({
-                    ...data,
-                    owner: owner.sub,
-                    boardId,
-                    backgroundColor,
-                  }),
-                }).then(res => console.log(res))
+                })
 
-                document.location.href = `/boards/${boardId}`
+                const variables = {
+                  title: data.title,
+                  description: data.description,
+                }
+
+                client.request(CreateBoardMutation, variables).then(res => {
+                  console.log(res.createBoard)
+                  document.location.href = `/boards/${res.createBoard.id}`
+                })
               }}
               action="Create Board"
             />
