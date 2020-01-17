@@ -8,16 +8,18 @@ import Layout from '../../components/Layout'
 import Loader from '../../components/Loader'
 import Board from '../../components/Board'
 import { useFetchUser } from '../../utils/user'
-import UpdateBoardMutation from '../../graphql/UpdateBoardMutation'
-import GetBoardQuery from '../../graphql/GetBoardQuery'
+
+// queries and mutations
+import UPDATE_BOARD from '../../graphql/mutations/update-board'
+import GET_BOARD from '../../graphql/queries/get-board'
 
 export default withApollo(() => {
   const router = useRouter()
   const { user, userLoading } = useFetchUser()
-  const { data, loading, error } = useQuery(GetBoardQuery, {
+  const { data, loading, error } = useQuery(GET_BOARD, {
     variables: { id: router.query.id },
   })
-  const [updateBoard] = useMutation(UpdateBoardMutation)
+  const [updateBoard] = useMutation(UPDATE_BOARD)
 
   const handleDataChange = data => {
     console.log(data)
