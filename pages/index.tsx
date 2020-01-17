@@ -8,11 +8,13 @@ import Loader from '../components/Loader'
 import BoardItem from '../components/BoardItem'
 import Layout from '../components/Layout'
 import { useFetchUser } from '../utils/user'
-import GetAllBoardsQuery from '../graphql/GetAllBoardsQuery'
+
+// queries and mutations
+import GET_ALL_BOARDS from '../graphql/queries/get-all-boards'
 
 export default withApollo(() => {
   const { user, userLoading } = useFetchUser()
-  const { data, loading, error } = useQuery(GetAllBoardsQuery)
+  const { data, loading, error } = useQuery(GET_ALL_BOARDS)
 
   return (
     <Layout user={user} loading={userLoading || loading} container={true}>
