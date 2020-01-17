@@ -1,13 +1,16 @@
 import * as React from 'react'
 import Link from 'next/link'
 import GithubCorner from 'react-github-corner'
+import { useRouter } from 'next/router'
 
 // custom imports
 import { useUser } from '../utils/user'
 import CreateBoard from './CreateBoard'
+import DeleteBoard from './DeleteBoard'
 
 export default () => {
-  const { user, loading } = useUser()
+  const { user, userLoading } = useUser()
+  const router = useRouter()
 
   return (
     <header>
@@ -28,16 +31,21 @@ export default () => {
               <a>About</a>
             </Link>
           </li>
-          {!loading &&
+          {!userLoading &&
             (user ? (
               <>
                 <li>
                   <Link href="/profile">
                     <a>Profile</a>
                   </Link>
-                </li>{' '}
+                </li>
+                {router.query.id && (
+                  <li>
+                    <DeleteBoard id={router.query.id} />
+                  </li>
+                )}
                 <li>
-                  <CreateBoard owner={user} />
+                  <CreateBoard />
                 </li>
                 <li>
                   <a href="/api/logout" onClick={() => localStorage.clear()}>
