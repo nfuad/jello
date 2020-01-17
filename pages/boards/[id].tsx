@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { withApollo } from '../../apollo/client'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { useRouter } from 'next/router'
 
 // custom imports
@@ -6,47 +8,50 @@ import Layout from '../../components/Layout'
 import Loader from '../../components/Loader'
 import Board from '../../components/Board'
 import { useFetchUser } from '../../utils/user'
+import UpdateBoardMutation from '../../graphql/UpdateBoardMutation'
+import GetBoardQuery from '../../graphql/GetBoardQuery'
 
-export default () => {
+export default withApollo(() => {
   const router = useRouter()
-  const { user, loading } = useFetchUser()
+  const { user, userLoading } = useFetchUser()
+  const { data, loading, error } = useQuery(GetBoardQuery, {
+    variables: { id: router.query.id },
+  })
+  const [updateBoard] = useMutation(UpdateBoardMutation)
 
-  let data: any = {}
+  const handleDataChange = data => {
+    console.log(data)
+    const lanes: any = []
 
-  if (user && !loading) {
-    const board = user.boards.filter(
-      board => board.id.toString() === router.query.id
-    )
-    data = { ...board[0] }
-  }
+    data.lanes.forEach(lane => {
+      const obj = { ...lane }
+      delete obj.__typename
+      obj.cards.forEach(card => {
+        delete card.__typename
+      })
+      lanes.push(obj)
+    })
 
-  const onDataChange = async (event, boardId) => {
-    console.log('data changed: ', event)
-
-    // update the board data in the database.
-    fetch('/api/update-board-data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ boardId, lanes: event.lanes }),
+    updateBoard({
+      variables: { id: router.query.id, lanes },
     })
   }
 
   return (
-    <Layout user={user} loading={loading} container={!user}>
-      {loading && <Loader />}
-      {!loading && !user && <h1>Please log in or create an account.</h1>}
-      {user && (
+    <Layout user={user} loading={userLoading} container={!user}>
+      {error && <h1>There was an error</h1>}
+      {!userLoading && !user && <h1>Please log in or create an account.</h1>}
+      {loading && userLoading && <Loader />}
+      {user && data && (
         <Board
           draggable
           editable
           canAddLanes
-          data={data}
-          onDataChange={event => onDataChange(event, router.query.id)}
-          style={{ backgroundColor: data.backgroundColor }}
+          data={data.board}
+          onDataChange={handleDataChange}
+          style={{ backgroundColor: data.board.backgroundColor }}
         />
       )}
     </Layout>
   )
-}
+})
