@@ -1,7 +1,10 @@
 import jwt from 'jsonwebtoken'
 import { ApolloServer } from 'apollo-server-micro'
 
+// import schema
 import { schema } from '../../apollo/schema'
+
+require('../../data/db')
 
 const getUser = token => {
   try {
