@@ -4,8 +4,8 @@ const boardSchema = new Schema(
   {
     id: {
       type: Schema.Types.ObjectId,
-      required: true,
       unique: true,
+      required: true,
     },
     title: {
       type: String,
@@ -24,12 +24,7 @@ const boardSchema = new Schema(
       type: String,
       required: true,
     },
-    lanes: {
-      type: [Schema.Types.ObjectId],
-      required: true,
-      ref: 'Lane',
-      default: [],
-    },
+    lanes: [],
     backgroundColor: {
       type: String,
       required: true,
@@ -38,6 +33,12 @@ const boardSchema = new Schema(
   { collection: 'boards' }
 )
 
-const Board = mongoose.model('Board', boardSchema)
+let Board
+
+if (mongoose.models.Board) {
+  Board = mongoose.model('Board')
+} else {
+  Board = mongoose.model('Board', boardSchema)
+}
 
 export default Board
