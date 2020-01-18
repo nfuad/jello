@@ -1,15 +1,28 @@
-import low from 'lowdb'
-import FileAsync from 'lowdb/adapters/FileAsync'
-
-const adapter = new FileAsync('db.json')
+// import models
+import Board from '../../../data/models/Board'
 
 export default async id => {
-  const db = await low(adapter)
+  try {
+    const res = await Board.findOne({ id })
 
-  await db.defaults({ boards: [] }).write()
-
-  return await db
-    .get('boards')
-    .find({ id: id })
-    .value()
+    const {
+      owner,
+      title,
+      description,
+      created_at,
+      lanes,
+      backgroundColor,
+    } = res
+    return {
+      id,
+      owner,
+      title,
+      description,
+      created_at,
+      lanes,
+      backgroundColor,
+    }
+  } catch (err) {
+    return { err }
+  }
 }

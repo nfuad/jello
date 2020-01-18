@@ -1,16 +1,28 @@
-import low from 'lowdb'
-import FileAsync from 'lowdb/adapters/FileAsync'
+import mongoose from 'mongoose'
 
-const adapter = new FileAsync('db.json')
+// import models
+import Board from '../../../data/models/Board'
 
 export default async (id, lanes, owner) => {
-  const db = await low(adapter)
+  try {
+    id = mongoose.Types.ObjectId(id)
 
-  await db.defaults({ boards: [] }).write()
+    await Board.update({ id, owner }, { lanes })
+    const board = await Board.findOne({ id, owner })
 
-  return await db
-    .get('boards')
-    .find({ id, owner })
-    .set('lanes', lanes)
-    .write()
+    const { created_at, title, description, backgroundColor } = board
+
+    return await {
+      id,
+      owner,
+      lanes,
+      created_at,
+      title,
+      description,
+      backgroundColor,
+    }
+  } catch (err) {
+    console.log(err)
+    return { err }
+  }
 }

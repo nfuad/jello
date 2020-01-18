@@ -1,31 +1,40 @@
 import randomColor from 'randomcolor'
-import low from 'lowdb'
-import FileAsync from 'lowdb/adapters/FileAsync'
+import mongoose from 'mongoose'
 
-const adapter = new FileAsync('db.json')
+// import models
+import Board from '../../../data/models/Board'
 
 export default async (title, description, owner) => {
-  const backgroundColor = randomColor({
-    luminosity: 'dark',
-    format: 'rgb',
-    alpha: 1,
-  })
+  try {
+    const backgroundColor = randomColor({
+      luminosity: 'dark',
+      format: 'rgb',
+      alpha: 1,
+    })
 
-  const db = await low(adapter)
-
-  await db.defaults({ boards: [] }).write()
-
-  return await db
-    .get('boards')
-    .push({
-      id: new Date().getTime().toString(),
-      title: title,
-      description: description,
-      created_at: new Date().toString(),
-      owner: owner,
-      lanes: [],
+    const id = new mongoose.Types.ObjectId()
+    const created_at = new Date().toString()
+    const board = new Board({
+      id,
+      title,
+      description,
+      created_at,
+      owner,
       backgroundColor,
     })
-    .last()
-    .write()
+
+    const res = await board.save()
+
+    return await {
+      id,
+      title,
+      description,
+      created_at,
+      owner,
+      lanes: res.lanes,
+      backgroundColor,
+    }
+  } catch (err) {
+    return { err }
+  }
 }

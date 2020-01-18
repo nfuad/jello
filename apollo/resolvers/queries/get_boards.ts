@@ -1,7 +1,12 @@
-export default owner => {
-  // get the board data
-  const { boards } = require('../../../db.json')
+// import models
+import Board from '../../../data/models/Board'
 
-  // return an array of boards created/owned by the user
-  return boards.filter(board => board.owner === owner)
+export default async owner => {
+  try {
+    const res = await Board.find({ owner })
+
+    return [...res]
+  } catch (err) {
+    return { err }
+  }
 }
