@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken'
 import { ApolloServer } from 'apollo-server-micro'
 
+import conf from '../../config'
+
 // import schema
 import { schema } from '../../apollo/schema'
 
@@ -8,7 +10,7 @@ require('../../data/db')
 
 const getUser = token => {
   try {
-    const decoded = jwt.verify(token, '_1q2Q3w4$W5e6E7r8R9t10T11y12Y@#%')
+    const decoded = jwt.verify(token, conf.JWT_SECRET)
     return { ...decoded }
   } catch (error) {
     console.log(error)
