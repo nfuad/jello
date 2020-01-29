@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 // import models
-import Board from '../../../data/models/Board'
+import Board from '../../../data/models/board'
 
 export default async (id, lanes, owner) => {
   try {

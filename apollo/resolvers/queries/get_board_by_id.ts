@@ -1,5 +1,5 @@
 // import models
-import Board from '../../../data/models/Board'
+import Board from '../../../data/models/board'
 
 export default async id => {
   try {
