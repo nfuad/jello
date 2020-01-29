@@ -1,6 +1,6 @@
 # Jello
 
-Jello is a simple task management web application. The frontend is built with React/Redux, Next.js, Apollo Client, etc. The backend is built with GraphQL, and MongoDB database. [Auth0](https://auth0.com) has been used for authentication and user login. Deployed with [Zeit's Now](https://zeit.co). View the Live site here: <a href="https://jello.now.sh">https://jello.now.sh</a>. The graphQL API is essentially built with serverless functions.
+Jello is a simple task management web application. The frontend is built with React/Redux, Next.js, Apollo Client, etc. The backend is built with GraphQL, and MongoDB. [Auth0](https://auth0.com) has been used for authentication and user login. Deployed with [Zeit's Now](https://zeit.co). View the Live site here: <a href="https://jello.now.sh">https://jello.now.sh</a>. The graphQL API is essentially built with serverless functions.
 
 _Here's a glimpse of the live demo:_
 <a href="https://jello.now.sh"><img src="./public/img/jello.png" /></a>
