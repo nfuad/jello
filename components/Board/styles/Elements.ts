@@ -81,7 +81,7 @@ export const LaneMenuItem = styled.div`
   text-decoration: none;
 
   &:hover {
-    background-color: #3179ba;
+    background-color: orange;
     color: #fff;
   }
 `
@@ -202,7 +202,8 @@ export const ExpandBtn = styled(ExpandCollapseBase)`
 `
 
 export const AddButton = styled.button`
-  background: #5aac44;
+  background: #000;
+  border: none;
   color: #fff;
   transition: background 0.3s ease;
   min-height: 32px;
@@ -219,6 +220,7 @@ export const AddButton = styled.button`
 
 export const CancelButton = styled.button`
   background: #999999;
+  border: none;
   color: #fff;
   transition: background 0.3s ease;
   min-height: 32px;
@@ -232,9 +234,9 @@ export const CancelButton = styled.button`
   margin-bottom: 0;
 `
 export const AddLaneLink = styled.button`
-  background: #2b6aa3;
+  background: orange;
   border: none;
-  color: #fff;
+  color: #000;
   transition: background 0.3s ease;
   min-height: 32px;
   padding: 4px 16px;

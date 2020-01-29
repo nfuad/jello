@@ -241,7 +241,7 @@ export const LaneTitle = styled.div`
 `
 
 export const LaneSection = styled.section`
-  background-color: #2b6aa3;
+  background-color: orange;
   border-radius: 3px;
   margin: 5px;
   position: relative;
