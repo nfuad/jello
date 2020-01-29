@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import isEqual from 'lodash/isEqual'
 import cloneDeep from 'lodash/cloneDeep'
-import uuidv1 from 'uuid/v1'
+import shortid from 'shortid'
 
 // custom imports
 import Container from '../dnd/Container'
@@ -131,7 +131,7 @@ class Lane extends React.Component<Props, State> {
 
   addNewCard = params => {
     const laneId = this.props.id
-    const id = uuidv1()
+    const id = shortid.generate()
     this.hideEditableCard()
     let card = { id, ...params }
     this.props.actions.addCard({ laneId, card })

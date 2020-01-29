@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import classNames from 'classnames'
 import { applyMiddleware, createStore } from 'redux'
 import logger from 'redux-logger'
-import uuidv1 from 'uuid/v1'
+import shortid from 'shortid'
 import BoardContainer from './BoardContainer'
 import boardReducer from '../reducers/BoardReducer'
 
@@ -21,7 +21,7 @@ export default class Board extends React.Component<Props, any> {
   constructor(props) {
     super(props)
     this.store = this.getStore()
-    this.id = props.id || uuidv1()
+    this.id = props.id || shortid.generate()
   }
 
   getStore = () => {
