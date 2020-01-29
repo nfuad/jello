@@ -8,9 +8,9 @@ import {
   CardTitle,
   Detail,
   Footer,
-} from '../styles/Base'
-import Tag from './Card/Tag'
-import DeleteButton from '../widgets/DeleteButton'
+} from './Board/styles/Base'
+import Tag from './Tag'
+import DeleteButton from './Board/widgets/DeleteButton'
 
 interface Props {
   showDeleteButton: boolean

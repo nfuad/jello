@@ -8,9 +8,9 @@ import {
   CardTitle,
   CardWrapper,
   Detail,
-} from '../styles/Base'
-import { AddButton, CancelButton } from '../styles/Elements'
-import EditableLabel from '../widgets/EditableLabel'
+} from './Board/styles/Base'
+import { AddButton, CancelButton } from './Board/styles/Elements'
+import EditableLabel from './Board/widgets/EditableLabel'
 
 interface Props {
   onCancel: any

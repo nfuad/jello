@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 // custom imports
-import InlineInput from '../../widgets/InlineInput'
-import { Title, LaneHeader, RightContent } from '../../styles/Base'
+import InlineInput from '../Board/widgets/InlineInput'
+import { Title, LaneHeader, RightContent } from '../Board/styles/Base'
 import LaneMenu from './LaneMenu'
 
 interface Props {

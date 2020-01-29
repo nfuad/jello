@@ -10,7 +10,7 @@ import {
   Section,
   BoardWrapper,
   ScrollableLane,
-} from '../styles/Base'
+} from './Board/styles/Base'
 
 export default {
   GlobalStyle,

@@ -6,7 +6,7 @@ import Container from './dnd/Container'
 import BoardContainer from './controllers/BoardContainer'
 import Board from './controllers/Board'
 import Lane from './controllers/Lane'
-import DefaultComponents from './components'
+import DefaultComponents from '..'
 import widgets from './widgets'
 
 export { Draggable, Container, BoardContainer, Board, Lane, widgets }

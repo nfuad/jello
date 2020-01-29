@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 // custom imports
-import { TagSpan } from '../../styles/Base'
+import { TagSpan } from './Board/styles/Base'
 
 interface Props {
   title: string

@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 // custom imports
-import { LaneFooter } from '../../styles/Base'
-import { CollapseBtn, ExpandBtn } from '../../styles/Elements'
+import { LaneFooter } from '../Board/styles/Base'
+import { CollapseBtn, ExpandBtn } from '../Board/styles/Elements'
 
 export default ({ onClick, collapsed }) => (
   <LaneFooter onClick={onClick}>

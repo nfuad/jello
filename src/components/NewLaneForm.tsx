@@ -2,9 +2,9 @@ import * as React from 'react'
 import ClickOutside from 'react-click-outside'
 
 // custom imports
-import { LaneTitle, NewLaneButtons, Section } from '../styles/Base'
-import { AddButton, CancelButton } from '../styles/Elements'
-import NewLaneTitleEditor from '../widgets/NewLaneTitleEditor'
+import { LaneTitle, NewLaneButtons, Section } from './Board/styles/Base'
+import { AddButton, CancelButton } from './Board/styles/Elements'
+import NewLaneTitleEditor from './Board/widgets/NewLaneTitleEditor'
 
 interface Props {
   onCancel: any

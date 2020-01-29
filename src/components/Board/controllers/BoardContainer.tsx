@@ -9,8 +9,8 @@ import { PopoverWrapper } from 'react-popopo'
 import Container from '../dnd/Container'
 import Draggable from '../dnd/Draggable'
 import Lane from './Lane'
-import * as boardActions from '../actions/BoardActions'
-import * as laneActions from '../actions/LaneActions'
+import * as boardActions from '../../../actions/BoardActions'
+import * as laneActions from '../../../actions/LaneActions'
 
 interface Props {
   id: string

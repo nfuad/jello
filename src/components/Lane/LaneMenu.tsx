@@ -2,7 +2,10 @@ import * as React from 'react'
 import { Popover } from 'react-popopo'
 
 // custom imports
-import { CustomPopoverContent, CustomPopoverContainer } from '../../styles/Base'
+import {
+  CustomPopoverContent,
+  CustomPopoverContainer,
+} from '../Board/styles/Base'
 import {
   LaneMenuTitle,
   LaneMenuHeader,
@@ -11,7 +14,7 @@ import {
   LaneMenuItem,
   GenDelButton,
   MenuButton,
-} from '../../styles/Elements'
+} from '../Board/styles/Elements'
 
 export default ({ onDelete }) => (
   <Popover

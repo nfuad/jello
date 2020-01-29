@@ -9,7 +9,7 @@ import shortid from 'shortid'
 // custom imports
 import Container from '../dnd/Container'
 import Draggable from '../dnd/Draggable'
-import * as laneActions from '../actions/LaneActions'
+import * as laneActions from '../../../actions/LaneActions'
 
 interface Props {
   actions: any
