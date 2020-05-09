@@ -5861,10 +5861,10 @@ react-github-corner@^2.3.0:
   resolved "https://registry.yarnpkg.com/react-github-corner/-/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
   integrity sha512-yVh8wtAfVA5CQYn8ygyxtsuCMoyiSEBVnzQJ3ynyWxZ1BzT2MHop4baZn/PnUnU9Yh8mwhLS5Y1RVxM5zNotGw==
 
-react-hook-form@^4.4.8:
-  version "4.4.8"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-4.4.8.tgz#fb228eea8d168362c8ee966fb91cb49b19bfa050"
-  integrity sha512-G43AJk75yhMfBggj7uF2EwSZH2G/uMFeC1LxGik8XcgUPO23o488t+CUEBvP0TXVlEc4ld7D4Kbmj5LVCPYo0w==
+react-hook-form@^4.10.2:
+  version "4.10.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-4.10.2.tgz#fb56160c302a0e2b595ef78cc8946c9dc9cb776a"
+  integrity sha512-Ule/KqHBwUvuubqGC4WDvOARS6VjlULSS+WHspgQ5FhFKR4ytHDc4AMpjVfnv+Wbz2TEbMp9/ZHmuZsUksPCiA==
 
 react-is@16.8.6:
   version "16.8.6"
