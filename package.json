@@ -57,7 +57,7 @@
     "redux-logger": "^3.0.6",
     "shortid": "^2.2.15",
     "smooth-dnd": "https://github.com/rcdexta/smooth-dnd",
-    "sweetalert2": "^9.5.4",
+    "sweetalert2": "^9.10.12",
     "sweetalert2-react-content": "^2.0.2"
   },
   "devDependencies": {
