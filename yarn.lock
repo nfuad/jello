@@ -6631,10 +6631,10 @@ sweetalert2-react-content@^2.0.2:
   resolved "https://registry.yarnpkg.com/sweetalert2-react-content/-/sweetalert2-react-content-2.0.2.tgz#bb3888d7ebfb2725eb8e2ce508621370bca7ab85"
   integrity sha512-UmqwSRBMq2sVNts84tybZfAfNq5ULxLvIz59CsXtMD/d/b4CVgXFcKds0z7GE5C0AKvFdnUNUO/yjC4lazKS2Q==
 
-sweetalert2@^9.5.4:
-  version "9.5.4"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.5.4.tgz#fcf9306a70ff9dbe2cb867b3bb7e871d854a2979"
-  integrity sha512-9FSmW9mCbRTHyx6Nbtgeb5348pJYNGaBafn3reKe/Zx/gOBgxsRVHj3GQ4VusU/tuqDobKAIHUdUvNdsU3MXPQ==
+sweetalert2@^9.10.12:
+  version "9.10.12"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.10.12.tgz#e3752fcbe13e7d23d0f85ee84b3c5fdc923da552"
+  integrity sha512-RnarmbDGTPmwecJbaVdq5LvlzbVReIOtPk0huPnXOE19G00xMxGcTY0wjt9AjwsexUnLivLXc3b6nD6+D6NlGg==
 
 symbol-observable@^1.0.2, symbol-observable@^1.0.4, symbol-observable@^1.2.0:
   version "1.2.0"
